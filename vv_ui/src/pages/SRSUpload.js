@@ -15,7 +15,7 @@ export default function SRSUpload() {
   const upload = async () => {
     setError('');
     if (!file) {
-      setError('Please select a file (.pdf, .docx, .txt, .md).');
+      setError('Please select a file (.pdf, .docx, .txt, .md, .csv, .xlsx, .xls).');
       return;
     }
     setLoading(true);
@@ -57,11 +57,11 @@ export default function SRSUpload() {
               aria-label="SRS file"
               className="input"
               type="file"
-              accept=".pdf,.docx,.txt,.md"
+              accept=".pdf,.docx,.txt,.md,.csv,.xlsx,.xls"
               onChange={onFileChange}
             />
             <div className="helper">
-              Accepted: .pdf, .docx, .txt, .md
+              Accepted: .pdf, .docx, .txt, .md, .csv, .xlsx, .xls
             </div>
           </div>
           <div className="col" style={{ alignSelf: 'end' }}>
