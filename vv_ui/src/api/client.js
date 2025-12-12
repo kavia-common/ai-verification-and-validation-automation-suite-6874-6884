@@ -1,6 +1,7 @@
 //
 // Simple API client for vv_ui
 //
+// Reads base URL from REACT_APP_API_BASE_URL (.env) with a default of http://localhost:3001
 
 const BASE_URL =
   process.env.REACT_APP_API_BASE_URL || 'http://localhost:3001';

@@ -9,9 +9,27 @@ This project provides a minimal React template with a clean, modern UI and minim
 - **Fast**: Minimal dependencies for quick loading times
 - **Simple**: Easy to understand and modify
 
+## Environment Setup
+
+- Copy `.env.example` to `.env` and set the backend URL:
+  ```
+  cp .env.example .env
+  ```
+  Edit `.env` if needed. By default it targets a local backend:
+  ```
+  REACT_APP_API_BASE_URL=http://localhost:3001
+  ```
+
+- Backend CORS: Ensure the backend (vv_backend_api) allows CORS from the UI origin:
+  - Allowed origin should include `http://localhost:3000` for local development.
+
 ## Getting Started
 
 In the project directory, you can run:
+
+### `npm install`
+
+Installs dependencies.
 
 ### `npm start`
 
@@ -52,6 +70,18 @@ Common components include:
 - Container (`.container`)
 - Navigation (`.navbar`)
 - Typography (`.title`, `.subtitle`, `.description`)
+
+## Backend Integration Notes
+
+- API base URL is read from `process.env.REACT_APP_API_BASE_URL`. The default fallback in code is `http://localhost:3001`.
+- Expected backend endpoints include:
+  - `POST /srs` (multipart) to upload SRS
+  - `POST /testcases/generate` and `GET /testcases?srs_id=...`
+  - `POST /scripts/generate` and `GET /scripts?srs_id=...`
+  - `POST /runs` to start a run, `GET /runs/:id`, and `GET /runs/:id/results`
+  - `GET /reports/latest?srs_id=...`
+
+Make sure the backend has CORS enabled for the UI origin (http://localhost:3000).
 
 ## Learn More
 
